@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1071537431341",
+    "project_id": "flash-chat-fee41",
+    "storage_bucket": "flash-chat-fee41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071537431341:android:fef0b4ddd2be0d562be9a4",
+        "android_client_info": {
+          "package_name": "com.jiaxen.flashchat2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071537431341-ktnd95nji2urldgr0ma3fbgjosa2tmln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyARzA--2ep96cmobnI2OYyMmvxam8BSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071537431341-ktnd95nji2urldgr0ma3fbgjosa2tmln.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1071537431341-pgkn2628hevs7hblmib6kbrp1tnicras.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jiaxen.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
