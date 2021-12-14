@@ -10,6 +10,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String? email;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Image.asset('images/logo.png'),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 48.0,
             ),
             TextField(
@@ -36,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             TextField(
@@ -45,10 +47,27 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your password'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24.0,
             ),
-            RoundedButton(buttonColor: Colors.lightBlueAccent, label: 'Login')
+            TextButton(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(32)),
+                          side: BorderSide(color: Colors.lightBlueAccent)
+                      )
+                  )
+              ),
+              child: Text('Log in'),
+              onPressed: () {
+                print(email);
+                print(password);
+              },
+            ),
           ],
         ),
       ),
