@@ -1,7 +1,8 @@
 import 'package:flashchat2/widgets/buttons.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../constants.dart';
+import 'chat_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
@@ -11,6 +12,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final _auth = FirebaseAuth.instance;
   String? email;
   String? password;
 
@@ -35,6 +37,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 email = value;
               },
@@ -45,6 +49,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 8.0,
             ),
             TextField(
+              obscureText: true,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 password = value;
               },
@@ -66,9 +72,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   )
               ),
               child: Text('Register'),
-              onPressed: () {
-                print(email);
-                print(password);
+              onPressed: () async {
+                final userEmail = email;
+                final userPassword = password;
+                if (userEmail != null && userPassword != null) {
+                  try {
+                    final newUser = await _auth.createUserWithEmailAndPassword(
+                        email: userEmail, password: userPassword);
+                    Navigator.pushNamed(context, ChatScreen.id);
+                  } catch (e) {
+                    print(e);
+                  }
+                };
+                // print(email);
+                // print(password);
               },
             ),
           ],
